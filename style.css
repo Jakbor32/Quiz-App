@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+* {
+    box-sizing: border-box;
+    font-family: 'Dongle', sans-serif;
+    color: white;
+
+}
+
+body {
+    background-color: #3e3e42;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+
+}
+
+h1 {
+    height: 10vh;
+    width: 100%;
+    padding-top: 20px;
+    font-size: 1.5em;
+}
+
+.container {
+    min-width: 60vw;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: #007acc;
+    border-radius: 50px;
+    row-gap: 20%;
+    flex-grow: 3;
+
+}
+
+.questions {
+    border-bottom: 5px solid #DDDA;
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.answers {
+    background-color: #1e1e1e;
+    border-radius: 30px;
+    width: 70%;
+    height: 35vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-items: center;
+    border: 5px solid white;
+
+}
+
+.answer {
+    position: relative;
+    padding: 1.2em 2em;
+    border-radius: 10px;
+    background-color: #2d2d30;
+    font-size: 1.5em;
+    border: none;
+
+
+}
+
+.answer::before, .answer::after {
+    position: absolute;
+    content: '';
+    display: block;
+    width: 5%;
+    height: 10%;
+    border: 2px solid;
+    transition: all 0.6s ease;
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
+.answer::before {
+    top: 0;
+    left: 0;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: #FFF;
+    border-left-color: #FFF;
+}
+
+.answer::after {
+    bottom: 0;
+    right: 0;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: #FFF;
+    border-right-color: #FFF;
+}
+
+.answer:hover::before, .answer:hover::after {
+    width: 85%;
+    height: 75%;
+    opacity: 0.5;
+
+}
+
+.answer:hover {
+    border-color: #DAA520;
+    cursor: pointer;
+}
+
+.footer {
+    height: 10vh;
+    width: 100%;
+    padding-top: 20px;
+}
+
+@media(max-width: 420px) {
+    .container {
+        border-radius: 0;
+        gap: 1;
+    }
+
+    .answers {
+        all: initial;
+
+    }
+
+    .answer {
+        width: 100%;
+        border-radius: 0;
+        border-top: 1px solid #FFF;
+
+    }
+
+    .answer:nth-child(1) {
+        border-top: 0;
+    }
+
+    .answer:hover {
+        border-color: white;
+    }
+
+    .answer::after, .answer::before {
+        all: initial;
+    }
+}
