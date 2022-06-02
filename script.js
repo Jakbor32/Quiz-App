@@ -1,18 +1,45 @@
-const answer = document.querySelector(".questions");
+const question = document.querySelector(".questions");
 
+let questions = [];
 
 // load JSON with FetchAPI
-const load = async () => {
-    let url = 'https://pub-quiz-game.herokuapp.com/history';
-    let obj = null;
+fetch('https://pub-quiz-game.herokuapp.com/history').then(obj => {
+    return obj.json();
+})
+    .then(dataQuestion => {
+        questions = dataQuestion.map(dataQuestion => {
 
-    try {
-        obj = await (await fetch(url)).json();
-    } catch (e) {
-        console.log('error');
-    }
+            // all questions downloaded from a remote source with JSON format and put on the array by method map()
 
-    console.log(obj);
-}
+            console.log(dataQuestion);
+            const
+                convertedQuestion = {
 
-load();
+                    // using the object structure to obtain data from the array
+
+                    question: dataQuestion.question,
+                    level: dataQuestion.difficulty,
+                    type: dataQuestion.type
+                };
+
+            const answerChoices = [...dataQuestion.incorrect_answers];
+
+            convertedQuestion.correctAnswer = Math.floor(Math.random() * 3) + 1;
+            answerChoices.splice(
+                convertedQuestion.correctAnswer - 1, 0, dataQuestion.correct_answer);
+
+            answerChoices.forEach((answer, index) => {
+
+                convertedQuestion["answer" + (index + 1)] = answer;
+                console.log(convertedQuestion);
+            });
+            return
+            convertedQuestion;
+
+        });
+
+    })
+    .catch(err => {
+        console.log("error");
+
+    });
