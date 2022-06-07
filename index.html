@@ -11,21 +11,34 @@
 
 <body>
     <h1>Welcome to the Quiz App</h1>
+    <div>
+        <div>
+            Question: <span id="questionCounter"></span>
+        </div>
+    </div>
+    <div>
+        <div>
+            Score: <span id="points"></span>
+        </div>
+    </div>
+
+    <div class="question-level">
+
+    </div>
+    <!--<div class="question-type"></div> -->
     <div class="container">
-        <div class="questions">
-            <p>Example question</p>
+        <div class="question">
         </div>
         <div class="answers">
-            <button class="answer">Answer1</button>
-            <button class="answer">Answer2</button>
-            <button class="answer">Answer3</button>
-            <button class="answer">Answer4</button>
+            <button class="answer" data-number="1">Answer1</button>
+            <button class="answer" data-number="2">Answer2</button>
+            <button class="answer" data-number="3">Answer3</button>
+            <button class="answer" data-number="4">Answer4</button>
         </div>
+
     </div>
-    <div class="footer">
-        <p>Created by Jakub Borowy</p>
-    </div>
-    <script defer src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
